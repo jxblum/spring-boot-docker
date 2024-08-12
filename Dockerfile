@@ -10,4 +10,4 @@ COPY ${JAR_FILE} .
 
 EXPOSE ${PORT}
 
-CMD [ "java", "-server", "-ea", "-jar", "${SPRING_PROFILE}", "spring-boot-docker-0.0.1-SNAPSHOT.jar" ]
+CMD [ "java", "-server", "-ea", "${SPRING_PROFILE}", "-jar", "spring-boot-docker-0.0.1-SNAPSHOT.jar" ]
