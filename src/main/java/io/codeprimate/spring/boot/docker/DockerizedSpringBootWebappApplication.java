@@ -31,12 +31,12 @@ public class DockerizedSpringBootWebappApplication {
 		@Value("${remote.server.port:8080}")
 		private int remoteServerPort;
 
-		@Value("${cp.spring.docker.app.identifier:A}")
-		private String identifier;
+		@Value("${spring.application.name:X}")
+		private String springApplicationName;
 
 		@GetMapping("/instance/identifier")
 		public String identifier() {
-			return "<h1>%s</h1>".formatted(getIdentifier());
+			return "<h1>%s</h1>".formatted(getSpringApplicationName());
 		}
 
 		@GetMapping("/remote/instance/identifier")
