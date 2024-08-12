@@ -26,7 +26,7 @@ public class DockerizedSpringBootWebappApplication {
 	@RestController
 	@RequestMapping("/app/docker")
 	@SuppressWarnings("unused")
-	static class IdentifierRestServiceController {
+	static class ApplicationNameRestServiceController {
 
 		@Value("${remote.server.port:8080}")
 		private int remoteServerPort;
@@ -34,20 +34,20 @@ public class DockerizedSpringBootWebappApplication {
 		@Value("${spring.application.name:X}")
 		private String springApplicationName;
 
-		@GetMapping("/instance/identifier")
-		public String identifier() {
+		@GetMapping("/instance/name")
+		public String name() {
 			return "<h1>%s</h1>".formatted(getSpringApplicationName());
 		}
 
-		@GetMapping("/remote/instance/identifier")
-		public String remoteIdentifier() {
+		@GetMapping("/remote/instance/name")
+		public String remoteName() {
 
 
 			return "<h1>%s</h1>".formatted(RestClient.builder()
 				.baseUrl("http://localhost:%d/app/docker".formatted(getRemoteServerPort()))
 				.build()
 				.get()
-				.uri("/instance/identifier")
+				.uri("/instance/name")
 				.retrieve()
 				.body(String.class));
 		}
