@@ -1,0 +1,28 @@
+# Spring Boot application.properties configuration for Dockerized Web application.
+
+spring:
+  config:
+    activate:
+      on-profile: A
+  application:
+    name: A
+name: A
+server:
+  port: 7070
+remote:
+  server:
+    port: 9090
+
+---
+spring:
+  config:
+    activate:
+      on-profile: B
+  application:
+    name: B
+name: BA
+server:
+  port: 9090
+remote:
+  server:
+    port: 7070
