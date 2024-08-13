@@ -31,6 +31,9 @@ public class DockerizedSpringBootWebappApplication {
 		@Value("${remote.server.port:8080}")
 		private int remoteServerPort;
 
+		@Value("${remote.server.hostname:localhost}")
+		private String remoteServerHostname;
+
 		@Value("${spring.application.name:X}")
 		private String springApplicationName;
 
@@ -42,9 +45,8 @@ public class DockerizedSpringBootWebappApplication {
 		@GetMapping("/remote/instance/name")
 		public String remoteName() {
 
-
 			return "<h1>%s</h1>".formatted(RestClient.builder()
-				.baseUrl("http://localhost:%d/app/docker".formatted(getRemoteServerPort()))
+				.baseUrl("http://%s:%d/app/docker".formatted(getRemoteServerHostname(), getRemoteServerPort()))
 				.build()
 				.get()
 				.uri("/instance/name")
