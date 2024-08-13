@@ -1,7 +1,7 @@
 FROM openjdk:17-oracle
 
 ARG HOST=skullbox
-ARG PORT=8080
+ARG PORT=7070
 ARG SPRING_PROFILE=A
 ARG JAR_FILE=target/spring-boot-docker-0.0.1-SNAPSHOT.jar
 
@@ -12,4 +12,4 @@ COPY ${JAR_FILE} .
 EXPOSE ${PORT}
 
 #CMD [ "java", "-server", "-ea", "-Dspring.profiles.active=${SPRING_PROFILE}", "-jar", "spring-boot-docker-0.0.1-SNAPSHOT.jar" ]
-CMD [ "java", "-server", "-ea", "-Dspring.profiles.active=A", "-Dremote.server.name=skullbox", "-jar", "spring-boot-docker-0.0.1-SNAPSHOT.jar" ]
+CMD [ "java", "-server", "-ea", "-Dspring.profiles.active=B", "-Dremote.server.hostname=skullbox", "-jar", "spring-boot-docker-0.0.1-SNAPSHOT.jar" ]
