@@ -20,7 +20,7 @@ spring:
       on-profile: B
   application:
     name: B
-name: BA
+name: B
 server:
   port: 9090
 remote:
