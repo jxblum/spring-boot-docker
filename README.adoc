@@ -1,0 +1,9 @@
+[[spring-boot-docker]]
+= Example Dockerized Spring Boot Application
+
+This project is a simple Java, Dockerized Spring Boot application running into separate Docker containers,
+communication through a REST API over HTTP.
+
+This requires the use of Docker https://docs.docker.com/network/[networking].
+
+Also see this https://medium.com/@javainuse/deploying-multiple-spring-boot-microservices-to-docker-using-docker-networking-a19043189f5b[article] for reference.
